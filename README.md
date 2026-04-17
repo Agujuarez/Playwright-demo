@@ -1,6 +1,6 @@
 # Playwright-demo
 
-Portafolio técnico para entrevistas, inspirado en patrones QA enterprise del sector financiero, sin exponer código ni datos confidenciales.
+Portfolio técnico inspirado en patrones QA enterprise del sector financiero. Demo para entrevistas.
 
 ## Qué muestra este repositorio
 
