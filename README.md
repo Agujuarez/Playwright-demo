@@ -7,8 +7,7 @@ Portafolio técnico para entrevistas, inspirado en patrones QA enterprise del se
 - Implementación de Page Object Model para automatización E2E (`pages/`)
 - Sesión autenticada reutilizable con `storageState` (`tests/setup/auth.setup.ts`)
 - Tests E2E con casos positivos y negativos (`tests/e2e/`)
-- Tests de API simples con Playwright (`tests/api/playwright-api.spec.ts`)
-- Tests de API de transferencias (`tests/api/api-transferencias.spec.ts`)
+- Tests de API en Playwright (`tests/api/`: un archivo de smoke + contratos, otro centrado en transferencias)
 - Pipelines de CI para Pull Request y Stage (`.github/workflows/`)
 
 ## Estructura del proyecto
@@ -49,9 +48,9 @@ npm run test:ci
 # Solo E2E
 npm run test:e2e
 
-# Solo API simples con Playwright
+# Solo API (smoke + ejemplo con steps)
 npm run test:api:pw
-# Solo API de transferencias
+# Solo API (transferencias: casos y matriz negativa)
 npm run test:api:transferencias
 ```
 
@@ -71,19 +70,12 @@ npm run test:api:transferencias
 - Seguridad: sin login no se accede a inventario, carrito ni checkout
 - Seguridad: tras logout no se puede volver al inventario sin credenciales
 
-### API simples con Playwright
+### API (Playwright `request`)
 
-- Positivo: status `200`
-- Negativo: status `401`
-- Positivo: validación de contrato de transferencia
+- **`playwright-api.spec.ts`**: smoke de HTTP (`200`, `401`), headers y tiempo de respuesta; un flujo de transferencia de ejemplo con `test.step` y validación de contrato.
+- **`api-transferencias.spec.ts`**: transferencia válida, `404` en ruta inexistente, negativos de negocio parametrizados (payloads inválidos + fallo de contrato).
 
-### API de transferencias
-
-- Positivo: contrato de transferencia válido
-- Negativo: endpoint inexistente devuelve `404`
-- Negativos de negocio: matriz de payloads inválidos con validación de contrato
-
-## Prácticas de nivel semi-senior/senior incluidas
+## Prácticas incluidas
 
 - Setup de autenticación centralizado por proyecto Playwright
 - Separación de proyectos en config (`setup`, `e2e`, `api`)
