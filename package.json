@@ -1,0 +1,33 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "Suite demo con Playwright E2E y API usando Page Object Model.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:all",
+    "test:e2e": "playwright test tests/e2e",
+    "test:api:pw": "playwright test tests/api/playwright-api.spec.ts",
+    "test:api:transferencias": "playwright test tests/api/api-transferencias.spec.ts",
+    "test:all": "npm run test:e2e && npm run test:api:pw && npm run test:api:transferencias",
+    "test:ci": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agujuarez/Playwright-demo.git"
+  },
+  "keywords": [],
+  "author": "Agujuarez",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Agujuarez/Playwright-demo/issues"
+  },
+  "homepage": "https://github.com/Agujuarez/Playwright-demo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
