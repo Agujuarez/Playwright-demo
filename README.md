@@ -1,6 +1,6 @@
 # Playwright-demo
 
-Portfolio técnico inspirado en patrones QA enterprise del sector financiero.
+Portfolio técnico inspirado en patrones QA enterprise del sector financiero. Demo para entrevistas.
 
 ## Qué muestra este repositorio
 
@@ -20,6 +20,7 @@ Portfolio técnico inspirado en patrones QA enterprise del sector financiero.
 │   ├── e2e/
 │   │   ├── auth/
 │   │   ├── carrito/
+│   │   ├── pagos/
 │   │   └── seguridad/
 │   └── setup/
 ├── utils/
@@ -60,6 +61,7 @@ npm run test:api:transferencias
 
 - `auth/`: login positivo y negativo
 - `carrito/`: flujo de compra básico con sesión autenticada
+- `pagos/`: checkout hasta confirmación del pedido (Sauce Demo no tiene pasarela real; se valida el cierre de compra)
 - `seguridad/`: rutas protegidas sin sesión, y sesión invalidada tras logout
 - Positivo: login válido
 - Negativo: login sin credenciales (click en login)
@@ -67,6 +69,7 @@ npm run test:api:transferencias
 - Negativo: contraseña inválida
 - Negativo: usuario bloqueado
 - Positivo: agregar producto al carrito y validar estado
+- Positivo: checkout completo hasta pantalla de pedido confirmado
 - Seguridad: sin login no se accede a inventario, carrito ni checkout
 - Seguridad: tras logout no se puede volver al inventario sin credenciales
 
